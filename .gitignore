@@ -27,3 +27,4 @@
 
 ### VSCODE ###
 .settings/org.eclipse.jdt.core.prefs
+!/.mvn/
