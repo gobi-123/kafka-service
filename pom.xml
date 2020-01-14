@@ -11,14 +11,19 @@
 	</parent>
 	<groupId>com.p3solutions</groupId>
 	<artifactId>kafka-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.14012020-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>kafka-service</name>
 	<description>Kafka service project for Spring Boot</description>
+	<url>https://gitlab.com/platform3solutions.com/archon-3.1/backend/archon-kafka-service</url>
+	<organization>
+		<name>Platform 3 Solutions</name>
+		<url>https://platform3solutions.com/</url>
+	</organization>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -41,4 +46,16 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>archiva.internal</id>
+			<name>Internal Release Repository</name>
+			<url>http://13.232.161.79:8080/repository/internal/</url>
+		</repository>
+		<snapshotRepository>
+			<id>archiva.snapshots</id>
+			<name>Internal Snapshot Repository</name>
+			<url>http://13.232.161.79:8080/repository/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
