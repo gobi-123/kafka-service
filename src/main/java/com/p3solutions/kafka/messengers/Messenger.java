@@ -18,13 +18,12 @@ public class Messenger {
     private KafkaTemplate<Object, Object> messageTemplate;
 
     public Messenger(KafkaTemplate<Object, Object> messageTemplate) {
-        super();
         this.messageTemplate = messageTemplate;
     }
 
     public void send(String topicName, Object key, Object value) {
         ListenableFuture<SendResult<Object, Object>> future = messageTemplate.send(topicName, key, value);
-        future.addCallback(new ListenableFutureCallback<SendResult<Object, Object>>() {
+        future.addCallback(new ListenableFutureCallback<>() {
 
             @Override
             public void onSuccess(SendResult<Object, Object> result) {
