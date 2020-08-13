@@ -2,7 +2,10 @@ spring:
   kafka:
     bootstrap-servers: ${kafka.hostname:localhost}:9092
 
+
 messenger:
+  topics:
+    replies-topic: REPLIES
   topic:
     name:
       task-name: MESSENGER_TASK

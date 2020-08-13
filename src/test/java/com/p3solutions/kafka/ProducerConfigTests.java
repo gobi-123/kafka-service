@@ -34,15 +34,15 @@ public class ProducerConfigTests {
     public void shouldCreateProducerFactoryBean() {
         Object objectObjectProducerFactory = context.getBean("objectObjectProducerFactory");
         assertEquals(DefaultKafkaProducerFactory.class, objectObjectProducerFactory.getClass());
-        Object stringStringProducerFactory = context.getBean("stringStringProducerFactory");
-        assertEquals(DefaultKafkaProducerFactory.class, stringStringProducerFactory.getClass());
+//        Object stringStringProducerFactory = context.getBean("stringStringProducerFactory");
+//        assertEquals(DefaultKafkaProducerFactory.class, stringStringProducerFactory.getClass());
     }
 
     @Test
     public void shouldCreateKafkaTemplateBean() {
-        Object objectObjectKafkaTemplate = context.getBean("objectObjectKafkaTemplate");
+        Object objectObjectKafkaTemplate = context.getBean("stringObjectKafkaTemplate");
         assertEquals(KafkaTemplate.class, objectObjectKafkaTemplate.getClass());
-        Object stringStringStringReplyingKafkaTemplate = context.getBean("stringStringStringReplyingKafkaTemplate");
+        Object stringStringStringReplyingKafkaTemplate = context.getBean("stringObjectStringReplyingKafkaTemplate");
         assertEquals(ReplyingKafkaTemplate.class, stringStringStringReplyingKafkaTemplate.getClass());
     }
 }

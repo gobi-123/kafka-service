@@ -1,5 +1,6 @@
 package com.p3solutions.kafka.messengers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
@@ -15,18 +16,18 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class Messenger {
 
-    private KafkaTemplate<Object, Object> messageTemplate;
+    private KafkaTemplate<String, Object> messageTemplate;
 
-    public Messenger(KafkaTemplate<Object, Object> messageTemplate) {
+    public Messenger(@Qualifier("stringObjectKafkaTemplate") KafkaTemplate<String, Object> messageTemplate) {
         this.messageTemplate = messageTemplate;
     }
 
-    public void send(String topicName, Object key, Object value) {
-        ListenableFuture<SendResult<Object, Object>> future = messageTemplate.send(topicName, key, value);
+    public void send(String topicName, String key, Object value) {
+        ListenableFuture<SendResult<String, Object>> future = messageTemplate.send(topicName, key, value);
         future.addCallback(new ListenableFutureCallback<>() {
 
             @Override
-            public void onSuccess(SendResult<Object, Object> result) {
+            public void onSuccess(SendResult<String, Object> result) {
                 log.info("Sent Object=[{}] with offset=[{}]", value.getClass().getName(),
                         result.getRecordMetadata().offset());
             }
