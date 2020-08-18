@@ -26,51 +26,25 @@ import static org.hamcrest.core.Is.is;
 
 /**
  * MessengerServiceTests
- * 
+ *
  * @author svudya
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MessengerServiceTests {
 
-    private static final String TEMPLATE_TOPIC = "templateTopic";
-
-    @ClassRule
-    public static EmbeddedKafkaRule embeddedKafka = new EmbeddedKafkaRule(1, true, TEMPLATE_TOPIC);
-
-    @Autowired
-    MessageConsumerConfig messageConsumerConfig;
-
-    @Autowired
-    MessageProducerConfig messageProducerConfig;
-
     @Before
-    public void setup() {
-        System.setProperty("spring.kafka.bootstrap-servers", embeddedKafka.getEmbeddedKafka().getBrokersAsString());
+    public void setUp(){
+
     }
 
     @Test
-    public void testMessageSent() throws Exception {
-        // // Consumer Configuration
-        // TestObject object = TestObject.builder().id("1").name("Test ID").build();
-        // ConcurrentMessageListenerContainer<String, String> container = messageConsumerConfig
-        //         .kafkaListenerContainerFactory().createContainer(TEMPLATE_TOPIC);
-        // final BlockingQueue<ConsumerRecord<String, String>> records = new LinkedBlockingQueue<>();
-        // container.setupMessageListener(new MessageListener<String, String>() {
-        //     @Override
-        //     public void onMessage(ConsumerRecord<String, String> record) {
-        //         System.out.println(record);
-        //         records.add(record);
-        //     }
-        // });
-        // container.setBeanName("templateTests");
-        // container.start();
-        // // Producer Configuration
-        // ProducerFactory<Object, Object> pf = messageProducerConfig.producerFactory();
-        // KafkaTemplate<Object, Object> template = new KafkaTemplate<>(pf);
-        // template.setDefaultTopic(TEMPLATE_TOPIC);
-        // template.sendDefault(object);
-        // ConsumerRecord<String, String> received = records.poll(10, TimeUnit.SECONDS);
-        // assertThat(received.value(), is("{\"id\":\"1\",\"name\":\"Test ID\"}"));
+    public void shouldSendMessageToCorrectTopic(){
+
+    }
+
+    @Test
+    public void shouldReportErrorIfSendingFailed(){
+
     }
 }

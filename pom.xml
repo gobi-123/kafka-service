@@ -24,6 +24,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 
 	<dependencies>
@@ -55,7 +56,11 @@
 			<version>2.10.2</version>
 		</dependency>
 		<!-- Jackson Dependencies -->
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

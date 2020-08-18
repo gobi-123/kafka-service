@@ -2,10 +2,15 @@ spring:
   kafka:
     bootstrap-servers: ${kafka.hostname:localhost}:9092
 
+
 messenger:
+  topics:
+    replies-topic: REPLIES
+    replies-group: REPLIES_GROUP
   topic:
     name:
       task-name: MESSENGER_TASK
   group:
     name:
       group-name: MESSENGER_GROUP
+
