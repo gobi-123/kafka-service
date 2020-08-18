@@ -29,6 +29,9 @@ public class MessengerConfiguration {
     @Value(value = "${messenger.topics.replies-topic}")
     private String replyTopic;
 
+    @Value(value = "${messenger.topics.replies-group}")
+    private String replyGroup;
+
     /**
      * @param objectObjectProducerFactory
      * @param stringStringConcurrentMessageListenerContainer
@@ -82,7 +85,7 @@ public class MessengerConfiguration {
     public Map<String, Object> getConsumerProperties() {
         Map<String, Object> props = new HashMap<String, Object>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG,"default_group");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, replyGroup);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer2.class);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer2.class);
