@@ -9,7 +9,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'git branch'
+        sh '''echo PATH = ${PATH}
+mvn -N io.takari:maven:wrapper
+./mvnw clean install'''
       }
     }
 
